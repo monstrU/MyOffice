@@ -1,0 +1,1451 @@
+{
+    "AutodetectRules": {
+        "AutodetectRules": {
+            "AutodetectRules": {
+                "CommonTokens": {
+                    "ClosingParenthesis": {
+                        "Complexity": "primitive",
+                        "Rules": [
+                            ")"
+                        ]
+                    },
+                    "ClosingParenthesisPart": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "SpacesTabs=opt, ClosingParenthesis"
+                        ]
+                    },
+                    "Digit": {
+                        "Complexity": "primitive",
+                        "Rules": [
+                            "0",
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6",
+                            "7",
+                            "8",
+                            "9"
+                        ]
+                    },
+                    "Number": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "Digit=mul"
+                        ]
+                    },
+                    "NumberWithThousandPart": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "Number, ThousandPart=opt|mul"
+                        ]
+                    },
+                    "OpeningParenthesis": {
+                        "Complexity": "primitive",
+                        "Rules": [
+                            "("
+                        ]
+                    },
+                    "OpeningParenthesisPart": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "SpacesTabs=opt, OpeningParenthesis"
+                        ]
+                    },
+                    "SeparateSign": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "SpacesTabs=opt,Sign"
+                        ]
+                    },
+                    "SeparatorNumber": {
+                        "Complexity": "primitive",
+                        "Rules": [
+                            "@sys:decimal-separator"
+                        ]
+                    },
+                    "Sign": {
+                        "Complexity": "primitive",
+                        "Rules": [
+                            "-",
+                            "+"
+                        ]
+                    },
+                    "SignPart": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "SeparateSign=mul"
+                        ]
+                    },
+                    "SpaceTab": {
+                        "Complexity": "primitive",
+                        "Rules": [
+                            " ",
+                            "\t",
+                            "\n"
+                        ]
+                    },
+                    "SpacesTabs": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "SpaceTab=mul"
+                        ]
+                    },
+                    "ThousandPart": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "ThousandSeparator, Digit, Digit, Digit=mul"
+                        ]
+                    },
+                    "ThousandSeparator": {
+                        "Complexity": "primitive",
+                        "Rules": [
+                            "@sys:thousand-separator"
+                        ]
+                    }
+                },
+                "CurrencyTokens": {
+                    "Currency": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "CurrencySymbolPart, SignPart=opt, SpacesTabs=opt, UnsignedNumber, SpacesTabs=opt",
+                            "SignPart=opt, CurrencySymbolPart, SpacesTabs=opt, UnsignedNumber, SpacesTabs=opt",
+                            "SignPart=opt, SpacesTabs=opt, UnsignedNumber, CurrencySymbolPart, SpacesTabs=opt",
+                            "CurrencySymbolPart, OpeningParenthesisPart, SpacesTabs=opt, UnsignedNumber, ClosingParenthesisPart, SpacesTabs=opt",
+                            "OpeningParenthesisPart, CurrencySymbolPart, SpacesTabs=opt, UnsignedNumber, ClosingParenthesisPart, SpacesTabs=opt",
+                            "OpeningParenthesisPart, SpacesTabs=opt, UnsignedNumber, CurrencySymbolPart, ClosingParenthesisPart, SpacesTabs=opt",
+                            "OpeningParenthesisPart, SpacesTabs=opt, UnsignedNumber, ClosingParenthesisPart, CurrencySymbolPart, SpacesTabs=opt"
+                        ]
+                    },
+                    "CurrencySymbol": {
+                        "Complexity": "primitive",
+                        "Rules": [
+                            "@co:LocaleData/LocaleData/FormatSymbols/CurrencySymbolsList",
+                            "@co:LocaleData/LocaleData/FormatSymbols/CurrencyCodesList",
+                            "@co:LocaleResources/LocaleResources/FormatSymbols/CurrencySymbol"
+                        ]
+                    },
+                    "CurrencySymbolPart": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "SpacesTabs=opt, CurrencySymbol"
+                        ]
+                    }
+                },
+                "DateTimeTokens": {
+                    "Ampm": {
+                        "Complexity": "primitive",
+                        "Rules": [
+                            "AM",
+                            "A.M",
+                            "PM",
+                            "P.M",
+                            "AM.",
+                            "A.M.",
+                            "PM.",
+                            "P.M."
+                        ]
+                    },
+                    "CombinedDateSeparator": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "MonthNumberDateSeparator",
+                            "MonthStringDateSeparator"
+                        ]
+                    },
+                    "CombinedDateSeparatorWithMonthString": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "SpacesTabs=opt,  CombinedDateSeparator,  SpacesTabs=opt",
+                            "SpacesTabs"
+                        ]
+                    },
+                    "Date": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "MonthNumberDate",
+                            "MonthStringDate"
+                        ]
+                    },
+                    "DateAndTime": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "SpacesTabs=opt, Date, SpacesTabs, Time, SpacesTabs=opt",
+                            "SpacesTabs=opt, Time, SpacesTabs, Date, SpacesTabs=opt",
+                            "Date",
+                            "Time"
+                        ]
+                    },
+                    "DateCommaSeparator": {
+                        "Complexity": "primitive",
+                        "Rules": [
+                            ", ",
+                            ",\t"
+                        ]
+                    },
+                    "DateTypes": {
+                        "MonthNumber": {
+                            "DayFirst": {
+                                "Complexity": "complex",
+                                "Rules": [
+                                    "Day, SpacesTabs=opt, MonthNumberDateSeparator, SpacesTabs=opt, MonthNumber, SpacesTabs=opt, MonthNumberDateSeparator, SpacesTabs=opt, Year",
+                                    "Day, SpacesTabs=opt, MonthNumberDateSeparator, SpacesTabs=opt, MonthNumber, MonthNumberDateSeparator=opt",
+                                    "MonthNumberDateSeparator=opt, SpacesTabs=opt, MonthNumber, SpacesTabs=opt, MonthNumberDateSeparator, SpacesTabs=opt, Year",
+                                    "Year, SpacesTabs=opt, MonthNumberDateSeparator, SpacesTabs=opt, MonthNumber, SpacesTabs=opt, MonthNumberDateSeparator, SpacesTabs=opt, Day=opt"
+                                ]
+                            },
+                            "MonthFirst": {
+                                "Complexity": "complex",
+                                "Rules": [
+                                    "MonthNumber=opt, SpacesTabs=opt, MonthNumberDateSeparator, SpacesTabs=opt, Day, SpacesTabs=opt, MonthNumberDateSeparator, SpacesTabs=opt, Year",
+                                    "MonthNumber, SpacesTabs=opt, MonthNumberDateSeparator, SpacesTabs=opt, Day, SpacesTabs=opt, MonthNumberDateSeparator=opt",
+                                    "MonthNumberDateSeparator=opt, SpacesTabs=opt, MonthNumber, SpacesTabs=opt, MonthNumberDateSeparator, SpacesTabs=opt, Year",
+                                    "Year, SpacesTabs=opt, MonthNumberDateSeparator, SpacesTabs=opt, MonthNumber, SpacesTabs=opt, MonthNumberDateSeparator, SpacesTabs=opt, Day=opt"
+                                ]
+                            },
+                            "YearFirst": {
+                                "Complexity": "complex",
+                                "Rules": [
+                                    "Year, SpacesTabs=opt, MonthNumberDateSeparator, SpacesTabs=opt, MonthNumber, SpacesTabs=opt, MonthNumberDateSeparator, SpacesTabs=opt, Day=opt",
+                                    "MonthNumber=opt, SpacesTabs=opt, MonthNumberDateSeparator, SpacesTabs=opt, Day, SpacesTabs=opt, MonthNumberDateSeparator, SpacesTabs=opt, Year",
+                                    "MonthNumber, SpacesTabs=opt, MonthNumberDateSeparator, SpacesTabs=opt, Day, SpacesTabs=opt, MonthNumberDateSeparator=opt",
+                                    "MonthNumberDateSeparator=opt, SpacesTabs=opt, MonthNumber, SpacesTabs=opt, MonthNumberDateSeparator, SpacesTabs=opt, Year"
+                                ]
+                            }
+                        },
+                        "MonthString": {
+                            "DayFirst": {
+                                "Complexity": "complex",
+                                "Rules": [
+                                    "Day, SpacesTabs=opt, CombinedDateSeparator, SpacesTabs=opt, MonthString, SpacesTabs=opt, CombinedDateSeparator, SpacesTabs=opt, Year",
+                                    "Day, SpacesTabs=opt, CombinedDateSeparator, SpacesTabs=opt, MonthString, CombinedDateSeparator=opt",
+                                    "Day, CombinedDateSeparatorWithMonthString=opt, MonthString, CombinedDateSeparatorWithMonthString=opt, Year",
+                                    "Day, CombinedDateSeparatorWithMonthString=opt, MonthString, SpacesTabs=opt, CombinedDateSeparator=opt",
+                                    "CombinedDateSeparator=opt, SpacesTabs=opt, MonthString, SpacesTabs=opt, CombinedDateSeparator, SpacesTabs=opt, Year",
+                                    "CombinedDateSeparator=opt, SpacesTabs=opt, MonthString, CombinedDateSeparatorWithMonthString=opt, Year",
+                                    "MonthString, CombinedDateSeparatorWithMonthString, Day=opt, SpacesTabs=opt, CombinedDateSeparator=opt",
+                                    "MonthString, CombinedDateSeparatorWithMonthString, Day=opt, CombinedDateSeparator, Year",
+                                    "Year, SpacesTabs=opt, CombinedDateSeparator, SpacesTabs=opt, MonthString, SpacesTabs=opt, CombinedDateSeparator, SpacesTabs=opt, Day=opt",
+                                    "Year, CombinedDateSeparatorWithMonthString=opt, MonthString, CombinedDateSeparatorWithMonthString=opt, Day=opt",
+                                    "Day, SpacesTabs=opt, DateCommaSeparator=opt, SpacesTabs=opt, MonthString, SpacesTabs=opt, DateCommaSeparator=opt, SpacesTabs=opt, Year"
+                                ]
+                            },
+                            "MonthFirst": {
+                                "Complexity": "complex",
+                                "Rules": [
+                                    "MonthString=opt, SpacesTabs=opt, CombinedDateSeparator, SpacesTabs=opt, Day, SpacesTabs=opt, CombinedDateSeparator, SpacesTabs=opt, Year",
+                                    "MonthString, SpacesTabs=opt, CombinedDateSeparator, SpacesTabs=opt, Day, SpacesTabs=opt, CombinedDateSeparator=opt",
+                                    "MonthString, CombinedDateSeparatorWithMonthString=opt, Day, CombinedDateSeparatorWithMonthString=opt",
+                                    "MonthString, CombinedDateSeparatorWithMonthString=opt, Day, CombinedDateSeparatorWithMonthString, Year",
+                                    "CombinedDateSeparator=opt, SpacesTabs=opt, MonthString, CombinedDateSeparatorWithMonthString=opt, Year",
+                                    "CombinedDateSeparator=opt, SpacesTabs=opt, MonthString, SpacesTabs=opt, CombinedDateSeparator, SpacesTabs=opt, Year",
+                                    "Day, CombinedDateSeparatorWithMonthString=opt, MonthString, SpacesTabs=opt, CombinedDateSeparator=opt",
+                                    "Day, CombinedDateSeparatorWithMonthString=opt, MonthString, CombinedDateSeparatorWithMonthString=opt, Year",
+                                    "Year, SpacesTabs=opt, CombinedDateSeparator, SpacesTabs=opt, MonthString, SpacesTabs=opt, CombinedDateSeparator, SpacesTabs=opt, Day=opt",
+                                    "Year, CombinedDateSeparatorWithMonthString=opt, MonthString, CombinedDateSeparatorWithMonthString=opt, Day=opt",
+                                    "MonthString, SpacesTabs=opt, DateCommaSeparator=opt, SpacesTabs=opt, Day, SpacesTabs=opt, DateCommaSeparator, SpacesTabs=opt, Year",
+                                    "MonthString, SpacesTabs=opt, DateCommaSeparator=opt, SpacesTabs=opt, Day, SpacesTabs, Year"
+                                ]
+                            },
+                            "YearFirst": {
+                                "Complexity": "complex",
+                                "Rules": [
+                                    "Year, SpacesTabs=opt, CombinedDateSeparator, SpacesTabs=opt, MonthString, SpacesTabs=opt, CombinedDateSeparator, SpacesTabs=opt, Day=opt",
+                                    "Year, CombinedDateSeparatorWithMonthString=opt, MonthString, CombinedDateSeparatorWithMonthString=opt, Day",
+                                    "MonthString=opt, SpacesTabs=opt, CombinedDateSeparator, SpacesTabs=opt, Day, SpacesTabs=opt, CombinedDateSeparator, SpacesTabs=opt, Year",
+                                    "MonthString, SpacesTabs=opt, CombinedDateSeparator, SpacesTabs=opt, Day, SpacesTabs=opt, CombinedDateSeparator=opt",
+                                    "MonthString, CombinedDateSeparatorWithMonthString=opt, Day, CombinedDateSeparatorWithMonthString=opt",
+                                    "MonthString, CombinedDateSeparatorWithMonthString=opt, Day, CombinedDateSeparatorWithMonthString, Year",
+                                    "CombinedDateSeparator=opt, SpacesTabs=opt, MonthString, CombinedDateSeparatorWithMonthString=opt, Year",
+                                    "CombinedDateSeparator=opt, SpacesTabs=opt, MonthString, SpacesTabs=opt, CombinedDateSeparator, SpacesTabs=opt, Year",
+                                    "Day, CombinedDateSeparatorWithMonthString=opt, MonthString, SpacesTabs=opt, CombinedDateSeparator=opt",
+                                    "Day, CombinedDateSeparatorWithMonthString=opt, MonthString, CombinedDateSeparatorWithMonthString=opt, Year",
+                                    "MonthString, SpacesTabs=opt, DateCommaSeparator=opt, SpacesTabs=opt, Day, SpacesTabs=opt, DateCommaSeparator, SpacesTabs=opt, Year",
+                                    "MonthString, SpacesTabs=opt, DateCommaSeparator=opt, SpacesTabs=opt, Day, SpacesTabs, Year"
+                                ]
+                            }
+                        }
+                    },
+                    "Day": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "Digit, Digit=opt"
+                        ]
+                    },
+                    "Hour": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "Digit, Digit=opt"
+                        ]
+                    },
+                    "Millisecond": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "Number"
+                        ]
+                    },
+                    "MillisecondsPart": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "SpacesTabs=opt, SeparatorNumber, SpacesTabs=opt, Millisecond=opt"
+                        ]
+                    },
+                    "Minute": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "Digit, Digit=opt"
+                        ]
+                    },
+                    "MonthNumber": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "Digit, Digit=opt"
+                        ],
+                        "TypicalName": "Month"
+                    },
+                    "MonthNumberDate": {
+                        "Complexity": "complex",
+                        "Rules": "@co:AutodetectRules/AutodetectRules/AutodetectRules/DateTimeTokens/DateTypes/MonthNumber/MonthFirst/Rules"
+                    },
+                    "MonthNumberDateSeparator": {
+                        "Complexity": "primitive",
+                        "Rules": [
+                            "/",
+                            "-"
+                        ]
+                    },
+                    "MonthString": {
+                        "Complexity": "primitive",
+                        "Rules": [
+                            "@co:LocaleData/LocaleData/MonthsNames/MonthsNamesLong",
+                            "@co:LocaleData/LocaleData/MonthsNames/MonthsNamesShort"
+                        ],
+                        "TypicalName": "Month"
+                    },
+                    "MonthStringDate": {
+                        "Complexity": "complex",
+                        "Rules": "@co:AutodetectRules/AutodetectRules/AutodetectRules/DateTimeTokens/DateTypes/MonthString/MonthFirst/Rules"
+                    },
+                    "MonthStringDateSeparator": {
+                        "Complexity": "primitive"
+                    },
+                    "Second": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "Digit, Digit=opt"
+                        ]
+                    },
+                    "Time": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "Hour=opt, SpacesTabs=opt, TimeSeparator, SpacesTabs=opt, Minute, SpacesTabs=opt, TimeSeparator, SpacesTabs=opt, Second, MillisecondsPart=opt, SpacesTabs=opt, Ampm=opt",
+                            "Hour=opt, SpacesTabs=opt, TimeSeparator, SpacesTabs=opt, Minute, SpacesTabs=opt, TimeSeparator=opt, SpacesTabs=opt, Ampm=opt",
+                            "Hour, SpacesTabs=opt, TimeSeparator=opt, SpacesTabs=opt, Ampm",
+                            "Minute, SpacesTabs=opt, TimeSeparator=opt, SpacesTabs=opt, Ampm",
+                            "Hour, SpacesTabs=opt, TimeSeparator, SpacesTabs=opt",
+                            "Minute, SpacesTabs=opt, TimeSeparator, SpacesTabs=opt, Second=opt, MillisecondsPart=opt, SpacesTabs=opt, Ampm=opt",
+                            "TimeSeparator, SpacesTabs=opt, Second, MillisecondsPart=opt, SpacesTabs=opt, Ampm=opt"
+                        ]
+                    },
+                    "TimeSeparator": {
+                        "Complexity": "primitive",
+                        "Rules": [
+                            ":"
+                        ]
+                    },
+                    "Year": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "Digit, Digit=opt",
+                            "Digit, Digit, Digit, Digit"
+                        ]
+                    }
+                },
+                "FractionTokens": {
+                    "Denominator": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "Number"
+                        ]
+                    },
+                    "Fraction": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "SignPart=opt, SpacesTabs=opt, IntegerPartFraction, SpacesTabs, Numerator, SpacesTabs=opt, SeparatorFraction, SpacesTabs=opt, Denominator, SpacesTabs=opt",
+                            "OpeningParenthesisPart, SpacesTabs=opt, IntegerPartFraction, SpacesTabs, Numerator, SpacesTabs=opt, SeparatorFraction, SpacesTabs=opt, Denominator, ClosingParenthesisPart, SpacesTabs=opt"
+                        ]
+                    },
+                    "IntegerPartFraction": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "Number"
+                        ]
+                    },
+                    "Numerator": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "Number"
+                        ]
+                    },
+                    "SeparatorFraction": {
+                        "Complexity": "primitive",
+                        "Rules": [
+                            "/"
+                        ]
+                    }
+                },
+                "NumberTokens": {
+                    "CommonNumber": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "SignPart=opt, SpacesTabs=opt, UnsignedNumber, SpacesTabs=opt",
+                            "OpeningParenthesisPart, SpacesTabs=opt, UnsignedNumber, ClosingParenthesisPart, SpacesTabs=opt"
+                        ]
+                    },
+                    "DecimalPartNumber": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "Number"
+                        ]
+                    },
+                    "IntegerPartNumber": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "NumberWithThousandPart"
+                        ]
+                    },
+                    "UnsignedNumber": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "IntegerPartNumber, SeparatorNumber=opt, DecimalPartNumber=opt",
+                            "SeparatorNumber, DecimalPartNumber"
+                        ]
+                    }
+                },
+                "PercentageTokens": {
+                    "Percentage": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "SpacesTabs=opt, PercentageSign, SignPart=opt, SpacesTabs=opt, UnsignedNumber, SpacesTabs=opt",
+                            "SignPart=opt, SpacesTabs=opt, PercentageSign, SpacesTabs=opt, UnsignedNumber, SpacesTabs=opt",
+                            "SignPart=opt, SpacesTabs=opt, UnsignedNumber, SpacesTabs=opt, PercentageSign, SpacesTabs=opt",
+                            "SpacesTabs=opt, PercentageSign, OpeningParenthesisPart, SpacesTabs=opt, UnsignedNumber, ClosingParenthesisPart, SpacesTabs=opt",
+                            "OpeningParenthesisPart, SpacesTabs=opt, PercentageSign, SpacesTabs=opt, UnsignedNumber, ClosingParenthesisPart, SpacesTabs=opt",
+                            "OpeningParenthesisPart, SpacesTabs=opt, UnsignedNumber, SpacesTabs=opt, PercentageSign, ClosingParenthesisPart, SpacesTabs=opt",
+                            "OpeningParenthesisPart, SpacesTabs=opt, UnsignedNumber, ClosingParenthesisPart, SpacesTabs=opt, PercentageSign, SpacesTabs=opt"
+                        ]
+                    },
+                    "PercentageSign": {
+                        "Complexity": "primitive",
+                        "Rules": [
+                            "@co:LocaleResources/LocaleResources/FormatSymbols/PercentageSymbol"
+                        ]
+                    }
+                },
+                "ScientificTokens": {
+                    "ExponentLiteral": {
+                        "Complexity": "primitive",
+                        "Rules": [
+                            "@co:LocaleResources/LocaleResources/FormatSymbols/ExponentLiteral"
+                        ]
+                    },
+                    "ExponentValue": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "NumberWithThousandPart"
+                        ]
+                    },
+                    "Scientific": {
+                        "Complexity": "complex",
+                        "Rules": [
+                            "SignPart=opt, SpacesTabs=opt, UnsignedNumber, SpacesTabs=opt, ExponentLiteral, SpacesTabs=opt, ScientificSign=opt, SpacesTabs=opt, ExponentValue, SpacesTabs=opt",
+                            "OpeningParenthesisPart, SpacesTabs=opt, UnsignedNumber, SpacesTabs=opt, ExponentLiteral, SpacesTabs=opt, ScientificSign=opt, SpacesTabs=opt, ExponentValue, ClosingParenthesisPart, SpacesTabs=opt"
+                        ]
+                    },
+                    "ScientificSign": {
+                        "Complexity": "primitive",
+                        "Rules": [
+                            "-",
+                            "+"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "CoreStrings": {
+        "CommonText": {
+            "AdverbsOfTime": {
+                "Today": "Сегодня",
+                "Yesterday": "Вчера"
+            },
+            "CrossReference": {
+                "Above": "выше",
+                "Below": "ниже"
+            },
+            "DefinedName": {
+                "AllSheets": "Все листы",
+                "CurrentSheet": "Текущий лист"
+            },
+            "PivotTable": {
+                "AllItems": "Все значения",
+                "BlankItems": "пустые",
+                "ColFieldsHeader": "Названия столбцов",
+                "EmptyStateHintRow": "Нет полей",
+                "GrandTotal": "Общий итог",
+                "Group": "Группа",
+                "MaximumSizeExceededErrorMessage": "Сводная таблица превышает максимально допустимый размер",
+                "MultipleItems": "Несколько значений",
+                "MyOfficePivotStyle": "Стиль сводной таблицы: МойОфис",
+                "PivotTable": "Сводная таблица",
+                "PivotTableNTemplate": "Сводная таблица {}",
+                "ResizeErrorMessage": "Для отображения сводной таблицы требуется больше места",
+                "RowFieldsHeader": "Названия строк",
+                "Total": "Итог",
+                "ValueHeaderNameTemplate": "{} по полю {}"
+            },
+            "TableOfContents": {
+                "EmptyStateMessage": "Примените стили заголовков, чтобы составить оглавление.",
+                "EmptyStateTitle": "Элементы оглавления не найдены."
+            },
+            "TableStyle": {
+                "ColumnNamePrefix": "Столбец",
+                "NamePrefix": "Таблица"
+            }
+        },
+        "Names": {
+            "Charts": {
+                "AxisTitle": "Название оси",
+                "Series": "Ряд",
+                "Title": "Название диаграммы"
+            },
+            "Functions": {
+                "Categories": {
+                    "Database": "Функции для работы с базами данных",
+                    "DateAndTime": "Функции даты и времени",
+                    "Engineering": "Инженерные функции",
+                    "Financial": "Финансовые функции",
+                    "Information": "Информационные функции",
+                    "Logical": "Логические функции",
+                    "LookupAndReference": "Функции ссылки и поиска",
+                    "MathAndTrigonometry": "Математические и тригонометрические функции",
+                    "Statistical": "Статистические функции",
+                    "Text": "Текстовые функции"
+                }
+            },
+            "PivotTable": {
+                "AdditionalCalculation": {
+                    "Difference": "Отличие от значения \"{}\" в поле \"{}\"",
+                    "DifferenceNext": "Отличие от следующего значения в поле \"{}\"",
+                    "DifferencePrevious": "Отличие от предыдущего значения в поле \"{}\"",
+                    "Index": "Индекс",
+                    "NoCalculation": "Без дополнительных вычислений",
+                    "Percent": "% от значения \"{}\" в поле \"{}\"",
+                    "PercentDiff": "% отличия от значения \"{}\" в поле \"{}\"",
+                    "PercentDiffNext": "% отличия от следующего значения в поле \"{}\"",
+                    "PercentDiffPrevious": "% отличия от предыдущего значения в поле \"{}\"",
+                    "PercentNext": "% от следующего значения в поле \"{}\"",
+                    "PercentOfCol": "% от итога по столбцу",
+                    "PercentOfGrandTotal": "% от общего итога",
+                    "PercentOfParent": "% от родительского итога по полю \"{}\"",
+                    "PercentOfParentCol": "% от итога по родительскому столбцу",
+                    "PercentOfParentRow": "% от итога по родительской строке",
+                    "PercentOfRow": "% от итога по строке",
+                    "PercentPrevious": "% от предыдущего значения в поле \"{}\"",
+                    "RunTotal": "Нарастающий итог по полю \"{}\""
+                },
+                "Functions": {
+                    "AVERAGE": "Среднее",
+                    "COUNT": "Количество",
+                    "COUNTNUMS": "Количество чисел",
+                    "MAX": "Максимум",
+                    "MEDIAN": "Медиана",
+                    "MIN": "Минимум",
+                    "PRODUCT": "Произведение",
+                    "STDDEV": "Стандартное отклонение",
+                    "STDDEVP": "Несмещенное отклонение",
+                    "SUM": "Сумма",
+                    "VAR": "Дисперсия",
+                    "VARP": "Несмещенная дисперсия"
+                }
+            },
+            "TableStyle": {
+                "Elements": {
+                    "Rows": {
+                        "All": "Все",
+                        "CurrentRow": "Эта строка",
+                        "Data": "Данные",
+                        "Headers": "Заголовки",
+                        "Totals": "Итоги"
+                    }
+                }
+            }
+        }
+    },
+    "FormattingData": {
+        "FormattingData": {
+            "FormattingPatterns": {
+                "Currency": {
+                    "Standard": "#,##0.00 ¤"
+                },
+                "DateTime": {
+                    "DateLong": "dddd, d mmmm yyyy \"г\".",
+                    "DateMedium": "dd.mm.yy",
+                    "DateShort": "d-mmm",
+                    "TimeShort": "h:mm"
+                }
+            }
+        }
+    },
+    "LocaleData": {
+        "LocaleData": {
+            "AMPMNames": [
+                "AM",
+                "PM"
+            ],
+            "CurrencyList": {
+                "ArmenianDram": {
+                    "AdditionalCurrencySymbols": "֏",
+                    "CurrencyCode": "AMD",
+                    "CurrencyLocaleCode": "42B",
+                    "CurrencyName": "Армянский драм",
+                    "CurrencySymbol": "դ"
+                },
+                "AustralianDollar": {
+                    "CurrencyCode": "AUD",
+                    "CurrencyLocaleCode": "C09",
+                    "CurrencyName": "Австралийский доллар",
+                    "CurrencySymbol": "$"
+                },
+                "AzerbaijanianManat": {
+                    "CurrencyCode": "AZN",
+                    "CurrencyLocaleCode": "42C",
+                    "CurrencyName": "Азербайджанский манат",
+                    "CurrencySymbol": "₼"
+                },
+                "BelarusianRuble": {
+                    "AdditionalCurrencyCodes": "BYR",
+                    "CurrencyCode": "BYN",
+                    "CurrencyLocaleCode": "423",
+                    "CurrencyName": "Белорусский рубль",
+                    "CurrencySymbol": "Br"
+                },
+                "BrazilianReal": {
+                    "CurrencyCode": "BRL",
+                    "CurrencyLocaleCode": "416",
+                    "CurrencyName": "Бразильский реал",
+                    "CurrencySymbol": "R$"
+                },
+                "BulgarianLev": {
+                    "CurrencyCode": "BGN",
+                    "CurrencyLocaleCode": "402",
+                    "CurrencyName": "Болгарский лев",
+                    "CurrencySymbol": "BGN"
+                },
+                "BurundianFranc": {
+                    "CurrencyCode": "BIF",
+                    "CurrencyLocaleCode": "1000",
+                    "CurrencyName": "Бурундийский франк",
+                    "CurrencySymbol": "FBu"
+                },
+                "CanadianDollar": {
+                    "CurrencyCode": "CAD",
+                    "CurrencyLocaleCode": "1009",
+                    "CurrencyName": "Канадский доллар",
+                    "CurrencySymbol": "$"
+                },
+                "CentralAfricanCFAFranc": {
+                    "CurrencyCode": "XAF",
+                    "CurrencyLocaleCode": "2C0C",
+                    "CurrencyName": "Франк КФА BEAC",
+                    "CurrencySymbol": "FCFA"
+                },
+                "ChineseYuan": {
+                    "CurrencyCode": "CNY",
+                    "CurrencyLocaleCode": "804",
+                    "CurrencyName": "Юань",
+                    "CurrencySymbol": "¥"
+                },
+                "CongoleseFranc": {
+                    "CurrencyCode": "CDF",
+                    "CurrencyLocaleCode": "240C",
+                    "CurrencyName": "Конголезский франк",
+                    "CurrencySymbol": "FC"
+                },
+                "CzechKoruna": {
+                    "CurrencyCode": "CZK",
+                    "CurrencyLocaleCode": "405",
+                    "CurrencyName": "Чешская крона",
+                    "CurrencySymbol": "Kč"
+                },
+                "DanishKrone": {
+                    "CurrencyCode": "DKK",
+                    "CurrencyLocaleCode": "406",
+                    "CurrencyName": "Датская крона",
+                    "CurrencySymbol": "kr."
+                },
+                "Euro": {
+                    "CurrencyCode": "EUR",
+                    "CurrencyLocaleCode": "2",
+                    "CurrencyName": "Евро",
+                    "CurrencySymbol": "€"
+                },
+                "GreatBritainPound": {
+                    "CurrencyCode": "GBP",
+                    "CurrencyLocaleCode": "809",
+                    "CurrencyName": "Фунт стерлингов",
+                    "CurrencySymbol": "£"
+                },
+                "HungarianForint": {
+                    "CurrencyCode": "HUF",
+                    "CurrencyLocaleCode": "40E",
+                    "CurrencyName": "Форинт",
+                    "CurrencySymbol": "Ft"
+                },
+                "IndianRupee": {
+                    "CurrencyCode": "INR",
+                    "CurrencyLocaleCode": "439",
+                    "CurrencyName": "Индийская рупия",
+                    "CurrencySymbol": "₹"
+                },
+                "JapaneseYen": {
+                    "CurrencyCode": "JPY",
+                    "CurrencyLocaleCode": "411",
+                    "CurrencyName": "Иена",
+                    "CurrencySymbol": "¥"
+                },
+                "KazakhstaniTenge": {
+                    "CurrencyCode": "KZT",
+                    "CurrencyLocaleCode": "43F",
+                    "CurrencyName": "Тенге",
+                    "CurrencySymbol": "₸"
+                },
+                "KyrgyzstaniSom": {
+                    "CurrencyCode": "KGS",
+                    "CurrencyLocaleCode": "440",
+                    "CurrencyName": "Сом",
+                    "CurrencySymbol": "KGS"
+                },
+                "MoldovanLeu": {
+                    "CurrencyCode": "MDL",
+                    "CurrencyLocaleCode": "819",
+                    "CurrencyName": "Молдавский лей",
+                    "CurrencySymbol": "MDL"
+                },
+                "MoroccanDirham": {
+                    "CurrencyCode": "MAD",
+                    "CurrencyLocaleCode": "380C",
+                    "CurrencyName": "Марокканский дирхам",
+                    "CurrencySymbol": "DH"
+                },
+                "NewZealandDollar": {
+                    "AdditionalCurrencySymbols": "NZ$",
+                    "CurrencyCode": "NZD",
+                    "CurrencyLocaleCode": "1409",
+                    "CurrencyName": "Новозеландский доллар",
+                    "CurrencySymbol": "$"
+                },
+                "NorwegianKrone": {
+                    "CurrencyCode": "NOK",
+                    "CurrencyLocaleCode": "414",
+                    "CurrencyName": "Норвежская крона",
+                    "CurrencySymbol": "kr"
+                },
+                "PolishZloty": {
+                    "CurrencyCode": "PLN",
+                    "CurrencyLocaleCode": "415",
+                    "CurrencyName": "Злотый",
+                    "CurrencySymbol": "zł"
+                },
+                "RomanianLeu": {
+                    "CurrencyCode": "RON",
+                    "CurrencyLocaleCode": "418",
+                    "CurrencyName": "Румынский лей",
+                    "CurrencySymbol": "RON"
+                },
+                "RussianRuble": {
+                    "AdditionalCurrencySymbols": [
+                        "р.",
+                        "руб."
+                    ],
+                    "CurrencyCode": "RUB",
+                    "CurrencyLocaleCode": "419",
+                    "CurrencyName": "Российский рубль",
+                    "CurrencySymbol": "₽"
+                },
+                "SingaporeDollar": {
+                    "CurrencyCode": "SGD",
+                    "CurrencyLocaleCode": "4809",
+                    "CurrencyName": "Сингапурский доллар",
+                    "CurrencySymbol": "$"
+                },
+                "SouthAfricanRand": {
+                    "CurrencyCode": "ZAR",
+                    "CurrencyLocaleCode": "436",
+                    "CurrencyName": "Рэнд",
+                    "CurrencySymbol": "ZAR"
+                },
+                "SouthKoreanWon": {
+                    "CurrencyCode": "KRW",
+                    "CurrencyLocaleCode": "412",
+                    "CurrencyName": "Вона",
+                    "CurrencySymbol": "₩"
+                },
+                "SwedishKrona": {
+                    "CurrencyCode": "SEK",
+                    "CurrencyLocaleCode": "41D",
+                    "CurrencyName": "Шведская крона",
+                    "CurrencySymbol": "kr"
+                },
+                "SwissFranc": {
+                    "CurrencyCode": "CHF",
+                    "CurrencyLocaleCode": "807",
+                    "CurrencyName": "Швейцарский франк",
+                    "CurrencySymbol": "₣"
+                },
+                "TajikistaniSomoni": {
+                    "CurrencyCode": "TJS",
+                    "CurrencyLocaleCode": "428",
+                    "CurrencyName": "Сомони",
+                    "CurrencySymbol": "TJS"
+                },
+                "TurkishLira": {
+                    "CurrencyCode": "TRY",
+                    "CurrencyLocaleCode": "41F",
+                    "CurrencyName": "Турецкая лира",
+                    "CurrencySymbol": "₺"
+                },
+                "TurkmenistanManat": {
+                    "CurrencyCode": "TMT",
+                    "CurrencyLocaleCode": "442",
+                    "CurrencyName": "Новый туркменский манат",
+                    "CurrencySymbol": "TMT"
+                },
+                "UkrainianHryvnia": {
+                    "AdditionalCurrencySymbols": "грн.",
+                    "CurrencyCode": "UAH",
+                    "CurrencyLocaleCode": "422",
+                    "CurrencyName": "Гривна",
+                    "CurrencySymbol": "₴"
+                },
+                "UnitedStatesDollar": {
+                    "CurrencyCode": "USD",
+                    "CurrencyLocaleCode": "409",
+                    "CurrencyName": "Доллар США",
+                    "CurrencySymbol": "$"
+                },
+                "UzbekistaniSom": {
+                    "CurrencyCode": "UZS",
+                    "CurrencyLocaleCode": "443",
+                    "CurrencyName": "Узбекский сум",
+                    "CurrencySymbol": "UZS"
+                }
+            },
+            "DaysOfWeekNames": {
+                "Long": [
+                    "воскресенье",
+                    "понедельник",
+                    "вторник",
+                    "среда",
+                    "четверг",
+                    "пятница",
+                    "суббота"
+                ],
+                "Short": [
+                    "вс",
+                    "пн",
+                    "вт",
+                    "ср",
+                    "чт",
+                    "пт",
+                    "сб"
+                ]
+            },
+            "EraNames": {
+                "Long": [
+                    "до Рождества Христова",
+                    "от Рождества Христова"
+                ],
+                "Short": [
+                    "до н. э.",
+                    "н. э."
+                ]
+            },
+            "FormatSymbols": {
+                "AllCurrencies": [
+                    "AustralianDollar",
+                    "NewZealandDollar",
+                    "AzerbaijanianManat",
+                    "ArmenianDram",
+                    "BelarusianRuble",
+                    "RussianRuble",
+                    "BulgarianLev",
+                    "BrazilianReal",
+                    "HungarianForint",
+                    "DanishKrone",
+                    "Euro",
+                    "IndianRupee",
+                    "KazakhstaniTenge",
+                    "CanadianDollar",
+                    "KyrgyzstaniSom",
+                    "ChineseYuan",
+                    "SouthKoreanWon",
+                    "MoldovanLeu",
+                    "NorwegianKrone",
+                    "PolishZloty",
+                    "RomanianLeu",
+                    "SingaporeDollar",
+                    "GreatBritainPound",
+                    "UnitedStatesDollar",
+                    "TajikistaniSomoni",
+                    "TurkishLira",
+                    "TurkmenistanManat",
+                    "UzbekistaniSom",
+                    "UkrainianHryvnia",
+                    "CzechKoruna",
+                    "SwedishKrona",
+                    "SwissFranc",
+                    "SouthAfricanRand",
+                    "JapaneseYen",
+                    "CongoleseFranc",
+                    "BurundianFranc",
+                    "CentralAfricanCFAFranc",
+                    "MoroccanDirham"
+                ],
+                "CurrencyCodesList": [
+                    "@co:LocaleData/LocaleData/CurrencyList/AustralianDollar/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/NewZealandDollar/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/AzerbaijanianManat/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/ArmenianDram/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/BelarusianRuble/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/RussianRuble/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/BulgarianLev/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/BrazilianReal/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/HungarianForint/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/DanishKrone/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/Euro/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/IndianRupee/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/KazakhstaniTenge/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/CanadianDollar/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/KyrgyzstaniSom/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/ChineseYuan/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/SouthKoreanWon/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/MoldovanLeu/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/NorwegianKrone/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/PolishZloty/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/RomanianLeu/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/SingaporeDollar/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/GreatBritainPound/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/UnitedStatesDollar/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/TajikistaniSomoni/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/TurkishLira/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/TurkmenistanManat/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/UzbekistaniSom/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/UkrainianHryvnia/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/CzechKoruna/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/SwedishKrona/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/SwissFranc/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/SouthAfricanRand/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/JapaneseYen/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/CongoleseFranc/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/BurundianFranc/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/CentralAfricanCFAFranc/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/MoroccanDirham/CurrencyCode",
+                    "@co:LocaleData/LocaleData/CurrencyList/BelarusianRuble/AdditionalCurrencyCodes"
+                ],
+                "CurrencySymbolsList": [
+                    "@co:LocaleData/LocaleData/CurrencyList/AustralianDollar/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/NewZealandDollar/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/AzerbaijanianManat/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/ArmenianDram/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/BelarusianRuble/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/RussianRuble/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/BrazilianReal/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/HungarianForint/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/DanishKrone/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/Euro/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/IndianRupee/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/KazakhstaniTenge/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/CanadianDollar/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/ChineseYuan/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/SouthKoreanWon/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/NorwegianKrone/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/PolishZloty/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/SingaporeDollar/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/GreatBritainPound/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/UnitedStatesDollar/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/TurkishLira/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/UkrainianHryvnia/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/CzechKoruna/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/SwedishKrona/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/SwissFranc/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/JapaneseYen/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/CongoleseFranc/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/BurundianFranc/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/CentralAfricanCFAFranc/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/MoroccanDirham/CurrencySymbol",
+                    "@co:LocaleData/LocaleData/CurrencyList/NewZealandDollar/AdditionalCurrencySymbols",
+                    "@co:LocaleData/LocaleData/CurrencyList/ArmenianDram/AdditionalCurrencySymbols",
+                    "@co:LocaleData/LocaleData/CurrencyList/RussianRuble/AdditionalCurrencySymbols",
+                    "@co:LocaleData/LocaleData/CurrencyList/UkrainianHryvnia/AdditionalCurrencySymbols"
+                ]
+            },
+            "FormattingItems": {
+                "ColorCommonItem": {
+                    "Color": "цвет"
+                },
+                "ColorItems": {
+                    "Black": "черный",
+                    "Blue": "синий",
+                    "Cyan": "голубой",
+                    "Green": "зеленый",
+                    "Magenta": "фиолетовый",
+                    "Red": "красный",
+                    "White": "белый",
+                    "Yellow": "желтый"
+                },
+                "DateTimeItems": {
+                    "AmPm": {
+                        "Long": "AM/PM",
+                        "Short": "A/P"
+                    },
+                    "Day": {
+                        "DayOfWeekLong": "дддд",
+                        "DayOfWeekShort": "ддд",
+                        "Long": "дд",
+                        "Short": "д"
+                    },
+                    "Hours": {
+                        "Long": "чч",
+                        "LongNoTruncate": "[чч]",
+                        "Short": "ч",
+                        "ShortNoTruncate": "[ч]"
+                    },
+                    "Minutes": {
+                        "Long": "мм",
+                        "LongNoTruncate": "[мм]",
+                        "Short": "м",
+                        "ShortNoTruncate": "[м]"
+                    },
+                    "Month": {
+                        "FirstLetter": "ммммм",
+                        "Long": "мм",
+                        "LongText": "мммм",
+                        "Short": "м",
+                        "ShortText": "ммм"
+                    },
+                    "Seconds": {
+                        "Long": "сс",
+                        "LongNoTruncate": "[сс]",
+                        "Short": "с",
+                        "ShortNoTruncate": "[с]"
+                    },
+                    "WeekOfYear": {
+                        "Token": "нн"
+                    },
+                    "Year": {
+                        "Long": "гггг",
+                        "Short": "гг"
+                    }
+                },
+                "ExtraItems": {
+                    "General": "Общий"
+                }
+            },
+            "LanguageName": "ru",
+            "MeasurementSystem": "metric",
+            "MonthsNames": {
+                "MonthsNamesFirstLetter": [
+                    "Я",
+                    "Ф",
+                    "М",
+                    "А",
+                    "М",
+                    "И",
+                    "И",
+                    "А",
+                    "С",
+                    "О",
+                    "Н",
+                    "Д"
+                ],
+                "MonthsNamesLong": [
+                    "январь",
+                    "февраль",
+                    "март",
+                    "апрель",
+                    "май",
+                    "июнь",
+                    "июль",
+                    "август",
+                    "сентябрь",
+                    "октябрь",
+                    "ноябрь",
+                    "декабрь",
+                    "января",
+                    "февраля",
+                    "марта",
+                    "апреля",
+                    "мая",
+                    "июня",
+                    "июля",
+                    "августа",
+                    "сентября",
+                    "октября",
+                    "ноября",
+                    "декабря"
+                ],
+                "MonthsNamesShort": [
+                    "янв",
+                    "фев",
+                    "мар",
+                    "апр",
+                    "май",
+                    "июн",
+                    "июл",
+                    "авг",
+                    "сен",
+                    "окт",
+                    "ноя",
+                    "дек",
+                    "янв.",
+                    "февр.",
+                    "мар.",
+                    "апр.",
+                    "мая",
+                    "июн.",
+                    "июл.",
+                    "авг.",
+                    "сент.",
+                    "окт.",
+                    "нояб.",
+                    "дек."
+                ]
+            },
+            "QuarterNames": {
+                "Long": [
+                    "1-й квартал",
+                    "2-й квартал",
+                    "3-й квартал",
+                    "4-й квартал"
+                ],
+                "Short": [
+                    "1-й кв.",
+                    "2-й кв.",
+                    "3-й кв.",
+                    "4-й кв."
+                ]
+            },
+            "RegionName": "RU",
+            "TimeZones": {
+                "Names": [
+                    "(UTC-12:00) Линия перемены дат",
+                    "(UTC-11:00) Время в формате UTC -11",
+                    "(UTC-10:00) Алеутские острова",
+                    "(UTC-10:00) Гавайи",
+                    "(UTC-09:30) Маркизские острова",
+                    "(UTC-09:00) Аляска",
+                    "(UTC-09:00) Время в формате UTC -09",
+                    "(UTC-08:00) Время в формате UTC -08",
+                    "(UTC-08:00) Нижняя Калифорния",
+                    "(UTC-08:00) Тихоокеанское время (США и Канада)",
+                    "(UTC-07:00) Аризона",
+                    "(UTC-07:00) Горное время (США и Канада)",
+                    "(UTC-07:00) Ла-Пас, Мазатлан, Чихуахуа",
+                    "(UTC-06:00) Гвадалахара, Мехико, Монтеррей",
+                    "(UTC-06:00) Саскачеван",
+                    "(UTC-06:00) Центральная Америка",
+                    "(UTC-06:00) Центральное время (США и Канада)",
+                    "(UTC-06:00) о. Пасхи",
+                    "(UTC-05:00) Богота, Кито, Лима, Рио-Бранко",
+                    "(UTC-05:00) Восточное время (США и Канада)",
+                    "(UTC-05:00) Гавана",
+                    "(UTC-05:00) Гаити",
+                    "(UTC-05:00) Индиана (восток)",
+                    "(UTC-05:00) Четумаль",
+                    "(UTC-04:00) Асунсьон",
+                    "(UTC-04:00) Атлантическое время (Канада)",
+                    "(UTC-04:00) Джорджтаун, Ла-Пас, Манаус, Сан-Хуан",
+                    "(UTC-04:00) Каракас",
+                    "(UTC-04:00) Куяба",
+                    "(UTC-04:00) Острова Теркс и Кайкос",
+                    "(UTC-04:00) Сантьяго",
+                    "(UTC-03:30) Ньюфаундленд",
+                    "(UTC-03:00) Арагуаяна",
+                    "(UTC-03:00) Бразилия",
+                    "(UTC-03:00) Буэнос-Айрес",
+                    "(UTC-03:00) Гренландия",
+                    "(UTC-03:00) Кайенна, Форталеза",
+                    "(UTC-03:00) Монтевидео",
+                    "(UTC-03:00) Пунта-Аренас",
+                    "(UTC-03:00) Сальвадор",
+                    "(UTC-03:00) Сен-Пьер и Микелон",
+                    "(UTC-02:00) Время в формате UTC -02",
+                    "(UTC-02:00) Среднеатлантическое время - старое",
+                    "(UTC-01:00) Азорские о-ва",
+                    "(UTC-01:00) Кабо-Верде",
+                    "(UTC) Время в формате UTC",
+                    "(UTC+00:00) Дублин, Эдинбург, Лиссабон, Лондон",
+                    "(UTC+00:00) Касабланка",
+                    "(UTC+00:00) Монровия, Рейкьявик",
+                    "(UTC+01:00) Амстердам, Берлин, Берн, Вена, Рим, Стокгольм",
+                    "(UTC+01:00) Белград, Братислава, Будапешт, Любляна, Прага",
+                    "(UTC+01:00) Брюссель, Копенгаген, Мадрид, Париж",
+                    "(UTC+01:00) Варшава, Загреб, Сараево, Скопье",
+                    "(UTC+01:00) Виндхук",
+                    "(UTC+01:00) Западная Центральная Африка",
+                    "(UTC+02:00) Амман",
+                    "(UTC+02:00) Афины, Бухарест",
+                    "(UTC+02:00) Бейрут",
+                    "(UTC+02:00) Вильнюс, Киев, Харьков, Рига, София, Таллин, Хельсинки",
+                    "(UTC+02:00) Дамаск",
+                    "(UTC+02:00) Иерусалим",
+                    "(UTC+02:00) Каир",
+                    "(UTC+02:00) Калининград",
+                    "(UTC+02:00) Кишинев",
+                    "(UTC+02:00) Сектор Газа, Хеврон",
+                    "(UTC+02:00) Триполи",
+                    "(UTC+02:00) Хараре, Претория",
+                    "(UTC+03:00) Багдад",
+                    "(UTC+03:00) Кувейт, Эр-Рияд",
+                    "(UTC+03:00) Минск",
+                    "(UTC+03:00) Москва, Санкт-Петербург, Волгоград",
+                    "(UTC+03:00) Найроби",
+                    "(UTC+03:00) Стамбул",
+                    "(UTC+03:30) Тегеран",
+                    "(UTC+04:00) Абу-Даби, Мускат",
+                    "(UTC+04:00) Астрахань, Ульяновск",
+                    "(UTC+04:00) Баку",
+                    "(UTC+04:00) Ереван",
+                    "(UTC+04:00) Ижевск, Самара",
+                    "(UTC+04:00) Порт-Луи",
+                    "(UTC+04:00) Саратов",
+                    "(UTC+04:00) Тбилиси",
+                    "(UTC+04:30) Кабул",
+                    "(UTC+05:00) Ашхабад, Ташкент",
+                    "(UTC+05:00) Екатеринбург",
+                    "(UTC+05:00) Исламабад, Карачи",
+                    "(UTC+05:30) Колката, Мумбаи, Нью-Дели, Ченнай",
+                    "(UTC+05:30) Шри-Джаявардене-пура-Котте",
+                    "(UTC+05:45) Катманду",
+                    "(UTC+06:00) Астана",
+                    "(UTC+06:00) Дакка",
+                    "(UTC+06:00) Омск",
+                    "(UTC+06:30) Янгон",
+                    "(UTC+07:00) Бангкок, Джакарта, Ханой",
+                    "(UTC+07:00) Барнаул, Горно-Алтайск",
+                    "(UTC+07:00) Красноярск",
+                    "(UTC+07:00) Новосибирск",
+                    "(UTC+07:00) Томск",
+                    "(UTC+07:00) Ховд",
+                    "(UTC+08:00) Гонконг, Пекин, Урумчи, Чунцин",
+                    "(UTC+08:00) Иркутск",
+                    "(UTC+08:00) Куала-Лумпур, Сингапур",
+                    "(UTC+08:00) Перт",
+                    "(UTC+08:00) Тайбэй",
+                    "(UTC+08:00) Улан-Батор",
+                    "(UTC+08:30) Пхеньян",
+                    "(UTC+08:45) Юкла",
+                    "(UTC+09:00) Осака, Саппоро, Токио",
+                    "(UTC+09:00) Сеул",
+                    "(UTC+09:00) Чита",
+                    "(UTC+09:00) Якутск",
+                    "(UTC+09:30) Аделаида",
+                    "(UTC+09:30) Дарвин",
+                    "(UTC+10:00) Брисбен",
+                    "(UTC+10:00) Владивосток",
+                    "(UTC+10:00) Гуам, Порт-Морсби",
+                    "(UTC+10:00) Канберра, Мельбурн, Сидней",
+                    "(UTC+10:00) Хобарт",
+                    "(UTC+10:30) Лорд-Хау",
+                    "(UTC+11:00) Магадан",
+                    "(UTC+11:00) Остров Бугенвиль",
+                    "(UTC+11:00) Остров Норфолк",
+                    "(UTC+11:00) Сахалин",
+                    "(UTC+11:00) Соломоновы о-ва, Нов. Каледония",
+                    "(UTC+11:00) Чокурдах",
+                    "(UTC+12:00) Анадырь, Петропавловск-Камчатский",
+                    "(UTC+12:00) Веллингтон, Окленд",
+                    "(UTC+12:00) Время в формате UTC +12",
+                    "(UTC+12:00) Петропавловск-Камчатский - устаревшее",
+                    "(UTC+12:00) Фиджи",
+                    "(UTC+12:45) Чатем",
+                    "(UTC+13:00) Время в формате UTC +13",
+                    "(UTC+13:00) Нукуалофа",
+                    "(UTC+13:00) Самоа",
+                    "(UTC+14:00) О-в Киритимати"
+                ],
+                "Offsets": [
+                    "-43200",
+                    "-39600",
+                    "-36000",
+                    "-36000",
+                    "-34200",
+                    "-32400",
+                    "-32400",
+                    "-28800",
+                    "-28800",
+                    "-28800",
+                    "-25200",
+                    "-25200",
+                    "-25200",
+                    "-21600",
+                    "-21600",
+                    "-21600",
+                    "-21600",
+                    "-21600",
+                    "-18000",
+                    "-18000",
+                    "-18000",
+                    "-18000",
+                    "-18000",
+                    "-18000",
+                    "-14400",
+                    "-14400",
+                    "-14400",
+                    "-14400",
+                    "-14400",
+                    "-14400",
+                    "-14400",
+                    "-12600",
+                    "-10800",
+                    "-10800",
+                    "-10800",
+                    "-10800",
+                    "-10800",
+                    "-10800",
+                    "-10800",
+                    "-10800",
+                    "-10800",
+                    "-7200",
+                    "-7200",
+                    "-3600",
+                    "-3600",
+                    "0",
+                    "0",
+                    "0",
+                    "0",
+                    "3600",
+                    "3600",
+                    "3600",
+                    "3600",
+                    "3600",
+                    "3600",
+                    "7200",
+                    "7200",
+                    "7200",
+                    "7200",
+                    "7200",
+                    "7200",
+                    "7200",
+                    "7200",
+                    "7200",
+                    "7200",
+                    "7200",
+                    "7200",
+                    "10800",
+                    "10800",
+                    "10800",
+                    "10800",
+                    "10800",
+                    "10800",
+                    "12600",
+                    "14400",
+                    "14400",
+                    "14400",
+                    "14400",
+                    "14400",
+                    "14400",
+                    "14400",
+                    "14400",
+                    "16200",
+                    "18000",
+                    "18000",
+                    "18000",
+                    "19800",
+                    "19800",
+                    "20700",
+                    "21600",
+                    "21600",
+                    "21600",
+                    "23400",
+                    "25200",
+                    "25200",
+                    "25200",
+                    "25200",
+                    "25200",
+                    "25200",
+                    "28800",
+                    "28800",
+                    "28800",
+                    "28800",
+                    "28800",
+                    "28800",
+                    "30600",
+                    "31500",
+                    "32400",
+                    "32400",
+                    "32400",
+                    "32400",
+                    "34200",
+                    "34200",
+                    "36000",
+                    "36000",
+                    "36000",
+                    "36000",
+                    "36000",
+                    "37800",
+                    "39600",
+                    "39600",
+                    "39600",
+                    "39600",
+                    "39600",
+                    "39600",
+                    "43200",
+                    "43200",
+                    "43200",
+                    "43200",
+                    "43200",
+                    "45900",
+                    "46800",
+                    "46800",
+                    "46800",
+                    "50400"
+                ]
+            }
+        }
+    },
+    "LocaleResources": {
+        "LocaleResources": {
+            "Constants": {
+                "Booleans": {
+                    "False": "ЛОЖЬ",
+                    "True": "ИСТИНА"
+                },
+                "Errors": {
+                    "Div0": "#ДЕЛ/0!",
+                    "GettingData": "#ОЖИДАНИЕ_ДАННЫХ",
+                    "NA": "#Н/Д",
+                    "Name": "#ИМЯ?",
+                    "Null": "#ПУСТО!",
+                    "Num": "#ЧИСЛО!",
+                    "Ref": "#ССЫЛКА!",
+                    "Value": "#ЗНАЧ!"
+                }
+            },
+            "FormatSymbols": {
+                "CurrencySymbol": "р.",
+                "ExponentLiteral": "E",
+                "PercentageSymbol": "%"
+            },
+            "Separators": {
+                "ArgumentlistSeparator": ";",
+                "ArraylistSeparator": "\\",
+                "DecimalSeparator": ",",
+                "ThousandSeparator": " "
+            }
+        }
+    }
+}
